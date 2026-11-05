@@ -7,7 +7,8 @@ Multi-tenant document Q&A for SDRs: answers from one client’s PDFs only, with 
 Requires **Python 3.11+**. Scored path uses `CONTEXT_MODE=hybrid` (see `.env.example`).
 
 ```bash
-cd 202610_leadlane_takehome_task
+git clone https://github.com/Vinay-1209/leadlane-product-assistant.git
+cd leadlane-product-assistant
 # 1) system deps (Ubuntu/Debian)
 sudo apt-get install -y poppler-utils tesseract-ocr
 # 2) Python env + deps (uv, or: python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt)
