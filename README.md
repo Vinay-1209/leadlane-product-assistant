@@ -122,6 +122,8 @@ Expect **U01** → 4,8 kN from `…rev2026-09.pdf`; **U02** → pin-position sen
 - Upload metadata (`replaces`, `effective_date`) as strongest version signal.
 - Structured short-circuit for pure numeric filters (&lt;100 ms).
 - Cache + p95 timing in eval; more private canaries.
+- Hybrid judge: keep keyword checks for numbers/abstain; optional LLM-as-judge only for conflict/reasoning quality.
+- UI thumbs-up/down logged for drift.
 
 ## How AI tools were used
 
