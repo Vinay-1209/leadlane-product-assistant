@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+assistant/store.sqlite
+*.sqlite
+*.sqlite-journal
+eval/last_paced_run.json
+.pytest_cache/
+.streamlit/
+*.egg-info/
+.DS_Store
+__MACOSX/
+*.log
