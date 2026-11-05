@@ -9,8 +9,9 @@ Requires **Python 3.11+**. Scored path uses `CONTEXT_MODE=hybrid` (see `.env.exa
 ```bash
 git clone https://github.com/Vinay-1209/leadlane-product-assistant.git
 cd leadlane-product-assistant
-# 1) system deps (Ubuntu/Debian)
-sudo apt-get install -y poppler-utils tesseract-ocr
+# 1) system deps — pdfinfo/pdftotext + tesseract (OCR only when a page has no text)
+#    Ubuntu/Debian: sudo apt-get install -y poppler-utils tesseract-ocr
+#    macOS:         brew install poppler tesseract
 # 2) Python env + deps (uv, or: python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt)
 uv venv .venv && source .venv/bin/activate && uv pip install -r requirements.txt
 # 3) configure LLM (CONTEXT_MODE=hybrid for free Groq)
