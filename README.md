@@ -9,18 +9,34 @@ Requires **Python 3.11+**. Scored path uses `CONTEXT_MODE=hybrid` (see `.env.exa
 ```bash
 git clone https://github.com/Vinay-1209/leadlane-product-assistant.git
 cd leadlane-product-assistant
-# 1) system deps — pdfinfo/pdftotext + tesseract (OCR only when a page has no text)
-#    Ubuntu/Debian: sudo apt-get install -y poppler-utils tesseract-ocr
-#    macOS:         brew install poppler tesseract
-# 2) Python env + deps (uv, or: python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt)
-uv venv .venv && source .venv/bin/activate && uv pip install -r requirements.txt
-# 3) configure LLM (CONTEXT_MODE=hybrid for free Groq)
-cp .env.example .env   # set LLM_API_KEY
-# 4) ingest both tenants (+ documents registry, version resolve, catalogue)
+```
+
+1. System tools (`pdfinfo`, `pdftotext`, and `tesseract` for the one scanned page). Run one of these:
+
+Ubuntu/Debian:
+
+```bash
+sudo apt-get install -y poppler-utils tesseract-ocr
+```
+
+macOS:
+
+```bash
+brew install poppler tesseract
+```
+
+2–5. Python env, config, ingest, ask:
+
+```bash
+uv venv .venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
+cp .env.example .env
 python -m assistant.cli ingest
-# 5) ask / eval
 python -m assistant.cli ask --tenant alvery "Which modules have a pin stroke of at least 30 mm?"
 ```
+
+Set `LLM_API_KEY` in `.env` before ingest/ask. Without `uv`: `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`.
 
 Optional UI: `streamlit run ui/app.py`
 
